@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Laila:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Laila'">
+    <div class="grid grid-cols-2 h-screen w-screen">
+        <form method="GET" action="/SignUp" class="px-[75px] h-screen flex flex-col justify-around bg-[#0A525A]">
+            <div>
+                <h1 class="text-[#E4990D] text-center text-3xl font-bold">Sign Up</h1>
+            </div>
+            <div class="space-y-3">
+                <div class="flex flex-col space-y-3">
+                    <label for="" class="text-white font-semibold" >First Name</label>
+                    <input type="text" class="rounded-[22px] h-10 bg-[#E4990D]" name="first_name" required>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <label for="" class="text-white font-semibold" >Last Name</label>
+                    <input type="text" class="rounded-[22px] h-10 bg-[#E4990D]" name="last_name" required>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <label for="" class="text-white font-semibold" >Email</label>
+                    <input type="email" class="rounded-[22px] h-10 bg-[#E4990D]" name="email" required>
+                </div>
+                <div class="flex flex-col space-y-3">
+                    <label for="" class="text-white font-semibold" >Password</label>
+                    <input type="password" class="rounded-[22px] h-10 bg-[#E4990D]" name="password" required>
+                </div>
+            </div>
+            <div class="flex flex-col items-center space-y-3">
+                <p class="text-lg font-semibold text-white">Already a member? <a href = C:\xampp\htdocs\ProjectMISB\templates\Login.html>Login</a></p>
+                <button type="submit" class="h-10 w-40 rounded-lg bg-[#E4990D] text-white font-semibold text-xl">SignUp</button>
+            </div>
+        </form>
+       
+        <div class="bg-[#E4990D] flex flex-col justify-around px-[75px]">
+            <div class="space-y-8">
+                <div class="h-px bg-black"></div>
+                <div class="h-px bg-black"></div>
+                <div class="text-white bg-[#0A525A] text-2xl font-semibold py-5 px-5 rounded-2xl">
+                    Pencegahan dan Penanganan<br>
+                    Kekerasan Seksual<br>
+                    Di Civitas Akademika
+                </div>
+                <div class="h-px bg-black"></div>
+                <div class="px-1 pt-5 border-l border-t border-black">
+                    <img src="\static\img\SignUp.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
