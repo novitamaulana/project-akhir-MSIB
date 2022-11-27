@@ -10,33 +10,36 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'msib'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
-@app.route("/", methods=['GET']) 
+@app.route('/', methods=['GET','POST']) 
+def index():
+    return render_template('Login.html')
+
+@app.route('/login', methods=['GET', 'POST']) 
 def Login():
     msg=''
-    if request.method == "GET":
-        Email = request.form['email']
-        Password = request.form['password']
-        cur = mysql.connection.cursor()
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("SELECT email, password FROM users WHERE email = %s AND password = %s", (email, password,))
-        user = curl.fetchone()
-        mysql.connection.commit()
-        cur.close()
+        user = cur.fetchone()
 
         if user :
-            session['login'] = true
-            session['id'] = user['id']
+            session['login'] = True
+            session['password'] = user['password']
             session['email'] = user['email']
             return 'Login Sukses'
         else : 
-            msg='email/password salah!'
+            return 'Login salah'
     return render_template("Login.html")
 
 
-@app.route('/SignUp', methods=['POST'])
+@app.route('/SignUp', methods=['GET', 'POST'])
 def SignUp():
-    if request.method == "POST":
+    if request.method == "GET":
         details = request.form
         FirstName = details['first_name']
         LastName = details['last_name']
