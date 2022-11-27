@@ -33,7 +33,7 @@ def Login():
             session['email'] = user['email']
             return 'Login Sukses'
         else : 
-            return 'Login salah'
+            return 'Username/Password salah'
     return render_template("Login.html")
 
 
